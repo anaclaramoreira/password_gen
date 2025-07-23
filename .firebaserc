@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "password-generator-ded96",
+    "password-generator-staging": "password-generator-ded96",
+    "password-generator-production": "password-generator-ded96"
+  },
+  "targets": {},
+  "etags": {}
+}
