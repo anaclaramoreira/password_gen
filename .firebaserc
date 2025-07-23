@@ -1,11 +1,12 @@
 {
   "projects": {
-    "default": "password-generator-ded96",
+    "default": "testpasswordgenana",
     "password-generator-staging": "password-generator-ded96",
     "password-generator-production": "password-generator-ded96",
     "testing": "testingpasswordgeneratorappana",
     "staging": "stagingpasswordgeneratorappana",
-    "production": "prodpasswordgeneratorappana"
+    "production": "prodpasswordgeneratorappana",
+    "test": "testpasswordgenana"
   },
   "targets": {},
   "etags": {}
