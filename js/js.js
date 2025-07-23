@@ -158,20 +158,22 @@ generateBtn.addEventListener("click", () => {
 
 // Function responsible to generate password and then returning it.
 function generatePassword(length, lower, upper, number, symbol) {
-    let generatedPassword = "";
-    const typesCount = lower + upper + number + symbol;
-    const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
-    if (typesCount === 0) {
-        return "";
-    }
+    const types = [{ lower }, { upper }, { number }, { symbol }].filter(type => Object.values(type)[0]);
+    const typesCount = types.length;
+
+    if (typesCount === 0) return "";
+
+    let password = "";
+
     for (let i = 0; i < length; i++) {
-        typesArr.forEach(type => {
-            const funcName = Object.keys(type)[0];
-            generatedPassword += randomFunc[funcName]();
-        });
+        const type = types[i % typesCount];
+        const funcName = Object.keys(type)[0];
+        password += randomFunc[funcName]();
     }
-    return generatedPassword.slice(0, length)
-        .split('').sort(() => Math.random() - 0.5)
+
+    return password
+        .split('')
+        .sort(() => Math.random() - 0.5)
         .join('');
 }
 
