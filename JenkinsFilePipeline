@@ -9,17 +9,6 @@ pipeline {
         FIREBASE_DEPLOY_TOKEN = credentials('firebase-token')
     }
 
-    stages {
-        stage('Setup Node') {
-            steps {
-                sh '''
-                    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-                    sudo apt-get install -y nodejs
-                    node -v
-                    npm -v
-                '''
-            }
-        }
 
         stage('Building') {
             steps {
@@ -35,13 +24,13 @@ pipeline {
 
         stage('Staging') {
             steps {
-                sh 'firebase deploy -P password-generator-staging --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase deploy -P stagingpasswordgeneratorappana --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
 
         stage('Production') {
             steps {
-                sh 'firebase deploy -P password-generator-production --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase deploy -P prodpasswordgeneratorappana --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
     }
